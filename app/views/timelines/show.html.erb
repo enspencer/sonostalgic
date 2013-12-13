@@ -1,39 +1,21 @@
 <% if @timeline.title %>
-<h1><%= @timeline.title %></h1>
+<h1>Timeline title: <%= @timeline.title %></h1>
 <% else %>
-<h1><%= @timeline.id %></h1>
+<h1>Timeline id:<%= @timeline.id %></h1>
 <% end %>
 
-<h2><%= @timeline.birthyear %></h2>
+<h2>Born: <%= @timeline.birthyear %></h2>
 
-<%= @events.each do |event| %>
-<%= event.event_name %>
-<%= event.year %>
-<% event.artists.each do |artist| %>
-<%= artist.artist_name %>
-<% end %>
-<% end %>
+<% @events.each do |event| %>
+  <div>
+  <div>Event name: <%= event.event_name %></div>
+  <div>year: <%= event.year %></div>
+  <div>Artists:
 
-<!-- add events form-->
-
-
-<%= form_for @timeline do |f| %>
-
-<div class="field">
-  <%= f.fields_for :events do |t| %>
-  <%= t.label :event_name %>
-  <%= t.text_field :event_name %>
-
-  <%= t.label :year %>
-  <%= t.text_field :year %>
+  <% event.artists.each do |artist| %>
+    <div><%= artist.artist_name %>
+    </div>
   <% end %>
-
-  <%#= f.fields_for :artists do |a| %>
-  <%#= a.label :artist_name %>
-  <%#= a.text_field :artist_name %>
-
-  <%# end %>
-</div>
-
-<%= f.submit %>
+  </div>
+  </div>
 <% end %>

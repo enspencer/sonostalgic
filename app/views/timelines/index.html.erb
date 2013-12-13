@@ -1,1 +1,8 @@
 <%= button_to 'Create your timeline', new_timeline_path, method: :get %>
+
+Timelines:
+<div>
+<% @timelines.each do |timeline| %>
+  <a href="/timelines/<%= timeline.id %>"><%= timeline.title || timeline.id %></p>
+<% end %>
+</div>

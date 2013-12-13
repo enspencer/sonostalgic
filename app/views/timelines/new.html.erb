@@ -6,6 +6,22 @@
   <%= f.label :birthyear %>:
   <%= f.text_field :birthyear %><br />
 
+  <div class="field">
+  <%= f.fields_for :events do |t| %>
+    <%= t.select :event_name, options_for_select(["first concert", "first album", "favorite artist"]) %>
+
+    <%= t.label :year %>
+    <%= t.text_field :year %>
+
+    <%= f.fields_for :artists do |a| %>
+      <%= a.label :artist_name %>
+      <%= a.text_field :artist_name %>
+
+    <% end %>
+
+  <% end %>
+  </div>
+
   <%= f.submit %>
 <% end %>
 
