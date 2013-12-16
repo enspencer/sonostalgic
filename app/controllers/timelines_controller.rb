@@ -13,13 +13,14 @@ class TimelinesController < ApplicationController
 
   def new
     @timeline = Timeline.new
+    3.times { @timeline.events.build}
   end
 
   def create
     binding.pry
     @timeline = Timeline.new(title: timeline_params[:title], birthyear: timeline_params[:birthyear])
     @timeline.events.build(timeline_params[:events])
-    @timeline.artists.build(timeline_params[:artists])
+    # @timeline.artists.build(timeline_params[:artists])
     
     # @artists = []
     # @timeline.events.each do |event|
