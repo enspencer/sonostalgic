@@ -9,13 +9,10 @@
 <% @events.each do |event| %>
   <div>
   <div>Event name: <%= event.event_name %></div>
-  <div>year: <%= event.year %></div>
-  <div>Artists:
+  <div>Year: <%= event.year %></div>
+  <div>Artist:
 
-  <% event.artists.each do |artist| %>
-    <div><%= artist.artist_name %>
-    </div>
-  <% end %>
+  <%= event.artist.artist_name %>
   </div>
   </div>
 <% end %>

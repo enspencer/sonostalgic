@@ -14,9 +14,10 @@
     <%= t.label :year %>:
     <%= t.text_field :year %>
 
-    <%= f.fields_for :artists do |a| %>
-    <%= a.label :artist %>:
-    <%= a.text_field :artist_name %>
+
+    <%= t.fields_for :artists do |a| %>
+      <%= a.label :artist %>:
+      <%= a.text_field :artist_name %>
 
     <% end %>
   </div>
