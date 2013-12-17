@@ -1,4 +1,5 @@
 class TimelinesController < ApplicationController
+  respond_to :json, :html
   before_action :set_timeline, only: [:show, :update]
 
   def index
@@ -9,11 +10,18 @@ class TimelinesController < ApplicationController
     @timeline = Timeline.find(params[:id])
     @events = @timeline.events
 
+    respond_with @events
+
+    # respond_with(@timeline) do |format|
+    #   format.html
+    #   format.js
+    #   format.json { render :json => @timeline.as_json}
+    # end
   end
 
   def new
     @timeline = Timeline.new
-    3.times do
+    6.times do
       event = @timeline.events.build
     end
   end

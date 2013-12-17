@@ -9,7 +9,7 @@
 <div class="field">
   <%= f.fields_for :events do |t| %>
   <div>
-    <%= t.select :event_name, options_for_select(["first concert", "first album", "favorite artist"]) %>
+    <%= t.select :event_name, options_for_select(["first concert", "first album", "favorite artist age 12", "favorite artist age 16", "favorite artist age 18"]) %>
 
     <%= t.label :year %>:
     <%= t.text_field :year %>

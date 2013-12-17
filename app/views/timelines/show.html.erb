@@ -1,7 +1,7 @@
 <% if @timeline.title %>
-<h1>Timeline title: <%= @timeline.title %></h1>
+<h1 class='timeline-id' id='<%= @timeline.id %>'><%= @timeline.title %></h1>
 <% else %>
-<h1>Timeline id:<%= @timeline.id %></h1>
+<h1 class='timeline-id' id='<%= @timeline.id %>'>Timeline id:<%= @timeline.id %></h1>
 <% end %>
 
 <h2>Born: <%= @timeline.birthyear %></h2>
@@ -16,3 +16,8 @@
   </div>
   </div><br/>
 <% end %>
+
+<div id='life'>
+</div>
+
+<%= javascript_include_tag "graph"%>
