@@ -11,12 +11,6 @@ class TimelinesController < ApplicationController
     @events = @timeline.events
 
     respond_with @timeline
-
-    # respond_with(@timeline) do |format|
-    #   format.html
-    #   format.js
-    #   format.json { render :json => @timeline.as_json}
-    # end
   end
 
   def new
