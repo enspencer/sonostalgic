@@ -16,22 +16,25 @@ var Nostalgic = {
         svg1 = d3.select('#life')
           .append('svg')
           .attr('height', h)
-          .attr('width', w/2)
+          .attr('width', w)
           .attr('id', 'timeline-graph')
-          .style('border-top', '2px solid black')
-          .style('border-right', '2px dotted black'),
-        svg2 = d3.select('#life')
-          .append('svg')
-          .attr('height', h)
-          .attr('width', w/2)
-          .attr('id', 'timeline-graph')
-          .style('border-top', '2px solid red'),
-          
-        height = d3.scale
-                  .linear()
-                  .domain([0, ])
-                  .range([0, timelineLength])
-
+          .style('border-top', '2px solid black');
+        // svg2 = d3.select('#life')
+        //   .append('svg')
+        //   .attr('height', h)
+        //   .attr('width', w/2)
+        //   .attr('id', 'timeline-graph')
+        //   .style('border-top', '2px solid black'),
+for (var i = 1; i < timelineLength ; i++){
+        var thisHeight = i * yearHeight;
+        svg1.append('svg:line')
+            .attr('x1', 0)
+            .attr('y1', thisHeight)
+            .attr('x2', w)
+            .attr('y2', thisHeight)
+            .style('stroke', 'black')
+            .style('stroke-width', 2);
+};
 
   }
 
