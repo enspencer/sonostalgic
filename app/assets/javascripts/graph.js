@@ -1,7 +1,16 @@
 var Nostalgic = {
 
-  getTimeline: function(events){
-    console.log(events);
+  getTimeline: function(timeline){
+    Nostalgic.plotTimeline(timeline);
+  },
+
+  plotTimeline: function(timeline) {
+    var h = 2000,
+        w = 1000,
+        birthyear = timeline.birthyear,
+        currentDate = new Date(),
+        currentYear = currentDate.getFullYear(),
+        timelineLength = 2014 - birthyear;
   }
 
 };
@@ -11,8 +20,8 @@ $(function(){
       url: '/timelines/' + $('.timeline-id').attr('id'),
       type: 'GET',
       dataType: 'json',
-      success: function(events){
-        Nostalgic.getTimeline(events);
+      success: function(timeline){
+        Nostalgic.getTimeline(timeline);
       }
 
     });
