@@ -1,26 +1,18 @@
-// var Nostalgic = {
+var Nostalgic = {
 
-//   getTimeline: function(id){
-//     $.ajax({
-//       url: '/timelines/' + id,
-//       type: 'GET',
-//       dataType: 'json',
-//       success: function(timeline){
-//         console.log(timeline);
-//       }
+  getTimeline: function(events){
+    console.log(events);
+  }
 
-//     });
-//   },
-
-// };
+};
 
 $(function(){
   $.ajax({
       url: '/timelines/' + $('.timeline-id').attr('id'),
       type: 'GET',
       dataType: 'json',
-      success: function(timeline){
-        console.log(timeline);
+      success: function(events){
+        Nostalgic.getTimeline(events);
       }
 
     });
