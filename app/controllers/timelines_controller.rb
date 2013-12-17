@@ -10,7 +10,7 @@ class TimelinesController < ApplicationController
     @timeline = Timeline.find(params[:id])
     @events = @timeline.events
 
-    respond_with @events
+    respond_with @timeline
 
     # respond_with(@timeline) do |format|
     #   format.html
