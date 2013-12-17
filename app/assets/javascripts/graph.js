@@ -5,12 +5,34 @@ var Nostalgic = {
   },
 
   plotTimeline: function(timeline) {
-    var h = 2000,
-        w = 1000,
+    var yearHeight = 50,
         birthyear = timeline.birthyear,
         currentDate = new Date(),
         currentYear = currentDate.getFullYear(),
-        timelineLength = 2014 - birthyear;
+        timelineLength = 2014 - birthyear,
+        h = yearHeight * timelineLength,
+        w = 1000,
+        events = timeline.events,
+        svg1 = d3.select('#life')
+          .append('svg')
+          .attr('height', h)
+          .attr('width', w/2)
+          .attr('id', 'timeline-graph')
+          .style('border-top', '2px solid black')
+          .style('border-right', '2px dotted black'),
+        svg2 = d3.select('#life')
+          .append('svg')
+          .attr('height', h)
+          .attr('width', w/2)
+          .attr('id', 'timeline-graph')
+          .style('border-top', '2px solid red'),
+          
+        height = d3.scale
+                  .linear()
+                  .domain([0, ])
+                  .range([0, timelineLength])
+
+
   }
 
 };
