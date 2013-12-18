@@ -27,7 +27,7 @@ var Nostalgic = {
             .attr('y2', h)
             .style('stroke', 'gray');
 
-    for (var i = 0; i < timelineLength ; i++){
+    for (var i = 0; i < timelineLength; i++){
         var thisHeight = i * yearHeight;
         svg1.append('svg:line')
             .attr('x1', 100)
@@ -46,9 +46,21 @@ var Nostalgic = {
             .attr('class', 'timeline-year')
             .attr('font-size', 20)
             .attr('font-family', 'Raleway');
-};
+    };
+
+    for (var i = 0; i < events.length; i++){
+      var thing = events[i].year;
+      svg1.append('svg:ellipse')
+          .attr('cx', w/2 - 15)
+          .attr('cy', function(d){
+            return (thing - birthyear) * yearHeight - yearHeight/2;
+          })
+          .attr('rx', 10)
+          .attr('ry', 30)
+    };
     
   }
+  // end plotTimeline function
 
 };
 
