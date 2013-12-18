@@ -5,7 +5,7 @@ var Nostalgic = {
   },
 
   plotTimeline: function(timeline) {
-    var yearHeight = 50,
+    var yearHeight = 70,
         birthyear = timeline.birthyear,
         currentDate = new Date(),
         currentYear = currentDate.getFullYear(),
@@ -19,13 +19,25 @@ var Nostalgic = {
           .attr('width', w)
           .attr('id', 'timeline-graph')
           .style('border-top', '2px solid black');
-        // svg2 = d3.select('#life')
-        //   .append('svg')
-        //   .attr('height', h)
-        //   .attr('width', w/2)
-        //   .attr('id', 'timeline-graph')
-        //   .style('border-top', '2px solid black'),
-for (var i = 1; i < timelineLength ; i++){
+
+      // var elem = svg1.selectAll('g lineText').data(events),
+      //   elemEnter = elem.enter()
+      //                   .append('g')
+      //                   .attr('transform', function(d){return "translate(0,'+Math.abs(d.year-birthyear)+'')"});
+
+      // var line = elemEnter.append('svg:line')
+      //         .attr('x1', 0)
+      //         .attr('y1', function(d, i){ i * yearHeight })
+      //         .attr('x2', w)
+      //         .attr('y2', function(d, i){ i * yearHeight })
+      //         .style('stroke', 'gray')
+      //         .style('stroke-width', 2);
+
+      //   elemEnter.append('text')
+      //             .attr('dx', function(d){return -20})
+      //             .text(function(d){return d.year});
+
+for (var i = 0; i < timelineLength ; i++){
         var thisHeight = i * yearHeight;
         svg1.append('svg:line')
             .attr('x1', 0)
@@ -34,6 +46,16 @@ for (var i = 1; i < timelineLength ; i++){
             .attr('y2', thisHeight)
             .style('stroke', 'gray')
             .style('stroke-width', 2);
+
+        svg1.selectAll('text')
+            .data(i)
+            .append('text')
+            .text(function(d){
+              return birthyear + i;
+            })
+            .attr('y', thisHeight - 5)
+            .attr('x', 10)
+            .attr('font-size', 25);
 };
 
     var line = svg1.append('svg:line')
@@ -42,7 +64,6 @@ for (var i = 1; i < timelineLength ; i++){
         .attr('x2', w/2)
         .attr('y2', h)
         .style('stroke', 'gray');
-
   }
 
 };
@@ -58,8 +79,3 @@ $(function(){
 
     });
 });
-
-//   plotLife: function(data){
-//   title: document.getElementById('title'),
-//   el: document.getElementById('life')
-// }
