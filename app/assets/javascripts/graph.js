@@ -53,7 +53,9 @@ for (var i = 0; i < timelineLength ; i++){
             })
             .attr('y', thisHeight - 5)
             .attr('x', 10)
-            .attr('font-size', 25);
+            .attr('class', 'timeline-year')
+            .attr('font-size', 20)
+            .attr('font-family', 'Raleway');
 };
 
     var line = svg1.append('svg:line')
