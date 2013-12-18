@@ -20,22 +20,12 @@ var Nostalgic = {
           .attr('id', 'timeline-graph')
           .style('border-top', '2px solid black');
 
-      // var elem = svg1.selectAll('g lineText').data(events),
-      //   elemEnter = elem.enter()
-      //                   .append('g')
-      //                   .attr('transform', function(d){return "translate(0,'+Math.abs(d.year-birthyear)+'')"});
-
-      // var line = elemEnter.append('svg:line')
-      //         .attr('x1', 0)
-      //         .attr('y1', function(d, i){ i * yearHeight })
-      //         .attr('x2', w)
-      //         .attr('y2', function(d, i){ i * yearHeight })
-      //         .style('stroke', 'gray')
-      //         .style('stroke-width', 2);
-
-      //   elemEnter.append('text')
-      //             .attr('dx', function(d){return -20})
-      //             .text(function(d){return d.year});
+    var line = svg1.append('svg:line')
+            .attr('x1', w/2)
+            .attr('y1', 0)
+            .attr('x2', w/2)
+            .attr('y2', h)
+            .style('stroke', 'gray');
 
 for (var i = 0; i < timelineLength ; i++){
         var thisHeight = i * yearHeight;
@@ -58,12 +48,7 @@ for (var i = 0; i < timelineLength ; i++){
             .attr('font-family', 'Raleway');
 };
 
-    var line = svg1.append('svg:line')
-        .attr('x1', w/2)
-        .attr('y1', 0)
-        .attr('x2', w/2)
-        .attr('y2', h)
-        .style('stroke', 'gray');
+    
   }
 
 };
