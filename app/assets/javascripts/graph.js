@@ -32,9 +32,16 @@ for (var i = 1; i < timelineLength ; i++){
             .attr('y1', thisHeight)
             .attr('x2', w)
             .attr('y2', thisHeight)
-            .style('stroke', 'black')
+            .style('stroke', 'gray')
             .style('stroke-width', 2);
 };
+
+    var line = svg1.append('svg:line')
+        .attr('x1', w/2)
+        .attr('y1', 0)
+        .attr('x2', w/2)
+        .attr('y2', h)
+        .style('stroke', 'gray');
 
   }
 
