@@ -45,13 +45,11 @@ for (var i = 0; i < timelineLength ; i++){
             .attr('x2', w)
             .attr('y2', thisHeight)
             .style('stroke', 'gray')
-            .style('stroke-width', 2);
+            .style('stroke-width', 2),
 
-        svg1.selectAll('text')
-            .data(i)
-            .append('text')
+        svg1.append('text')
             .text(function(d){
-              return birthyear + i;
+              return birthyear + d;
             })
             .attr('y', thisHeight - 5)
             .attr('x', 10)
