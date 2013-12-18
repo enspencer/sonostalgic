@@ -50,13 +50,15 @@ var Nostalgic = {
 
     for (var i = 0; i < events.length; i++){
       var thing = events[i].year;
-      svg1.append('svg:ellipse')
-          .attr('cx', w/2 - 15)
-          .attr('cy', function(d){
-            return (thing - birthyear) * yearHeight - yearHeight/2;
+      svg1.append('svg:rect')
+          .attr('x', w/2 - 25)
+          .attr('y', function(d){
+            return (thing - birthyear) * yearHeight + 1;
           })
-          .attr('rx', 10)
-          .attr('ry', 30)
+          .attr('width', 20)
+          .attr('height', 68)
+          .attr('rx', 8)
+          .attr('ry', 8)
     };
     
   }
