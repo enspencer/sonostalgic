@@ -49,7 +49,7 @@ for (var i = 0; i < timelineLength ; i++){
 
         svg1.append('text')
             .text(function(d){
-              return birthyear + d;
+              return birthyear + i;
             })
             .attr('y', thisHeight - 5)
             .attr('x', 10)
