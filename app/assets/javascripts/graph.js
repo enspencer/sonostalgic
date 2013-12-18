@@ -27,12 +27,12 @@ var Nostalgic = {
             .attr('y2', h)
             .style('stroke', 'gray');
 
-for (var i = 0; i < timelineLength ; i++){
+    for (var i = 0; i < timelineLength ; i++){
         var thisHeight = i * yearHeight;
         svg1.append('svg:line')
-            .attr('x1', 0)
+            .attr('x1', 100)
             .attr('y1', thisHeight)
-            .attr('x2', w)
+            .attr('x2', w - 100)
             .attr('y2', thisHeight)
             .style('stroke', 'gray')
             .style('stroke-width', 2),
@@ -41,13 +41,12 @@ for (var i = 0; i < timelineLength ; i++){
             .text(function(d){
               return birthyear + i;
             })
-            .attr('y', thisHeight - 5)
+            .attr('y', thisHeight - 8)
             .attr('x', 10)
             .attr('class', 'timeline-year')
             .attr('font-size', 20)
             .attr('font-family', 'Raleway');
 };
-
     
   }
 
