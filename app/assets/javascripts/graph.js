@@ -132,6 +132,16 @@ var Nostalgic = {
         }
       });
     };
+
+    $('.share-button').tipsy({ 
+        gravity: 'n', 
+        html: true, 
+        fade: true,
+        offset: 2,
+        title: function() {
+          return 'copy this link: ' + document.URL; 
+        }
+});
     
   }
   // end plotTimeline function
