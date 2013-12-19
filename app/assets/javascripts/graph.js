@@ -65,11 +65,11 @@ var Nostalgic = {
     };
 
     for (var i = 0; i < events.length; i++){
-      var thing = events[i].year;
+      var thisYear = events[i].year;
       svg1.append('svg:rect')
           .attr('x', w/2 - 25)
           .attr('y', function(d){
-            return (thing - birthyear) * yearHeight + 1;
+            return (thisYear - birthyear) * yearHeight + 1;
           })
           .attr('width', 20)
           .attr('height', 68)
@@ -79,32 +79,40 @@ var Nostalgic = {
             d3.select(this)
             .transition()
             .duration(30)
-            .attr('fill', 'red')
+            .attr('fill', 'red');
+
+            // d3.select('.event-artist' + i)
+            // .transition()
+            // .duration(30)
+            // .attr('fill', 'red');
         })
           .on('mouseleave', function(d,i){
           d3.select(this)
               .transition()
-              .duration(100)
+              .duration(800)
               .attr('fill', 'black');
+
+          // d3.select('.event-artist' + i)
+          //   .transition()
+          //   .duration(800)
+          //   .attr('fill', 'black');
         }),
 
       svg1.append('svg:text')
           .text(function(d){
             return events[i].event_name + ": " + events[i].artist_name;
           })
-          .attr('class', 'event-artist')
-          .attr('y', (thing - birthyear) * yearHeight + 40)
+          .attr('class', 'event-artist' + i)
+          .attr('y', (thisYear - birthyear) * yearHeight + 40)
           .attr('x', w/2 + 20)
-          .attr('class', 'event-artist')
           .attr('font-size', 20)
           .attr('font-family', 'Raleway'),
 
-      $('.event-artist').tipsy({ 
+      $('.event-artist' + i).tipsy({ 
         gravity: 'w', 
         html: true, 
         fade: true,
         offset: 2,
-        fallback: 'No description available',
         title: function() {
           return artist.description; 
         }
