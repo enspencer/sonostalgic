@@ -15,6 +15,8 @@ gem 'pry-rails'
 # Use last.fm to get artist info
 gem 'lastfm'
 
+gem 'dotenv'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 

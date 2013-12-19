@@ -3,3 +3,4 @@ json.events @timeline.events do |json, event|
   json.(event, :year, :event_name)
   json.(event.artist, :artist_name)
 end
+json.(@timeline.events.artist, :artist_name, :genre, :description)

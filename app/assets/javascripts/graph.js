@@ -13,12 +13,16 @@ var Nostalgic = {
         h = yearHeight * timelineLength,
         w = 1000,
         events = timeline.events,
+        artists = new Array(),
         svg1 = d3.select('#life')
           .append('svg')
           .attr('height', h)
           .attr('width', w)
           .attr('id', 'timeline-graph')
           .style('border-top', '2px solid black');
+
+      
+      artists.push()
 
     var line = svg1.append('svg:line')
             .attr('x1', w/2)
@@ -87,17 +91,18 @@ var Nostalgic = {
           .attr('x', 100)
           .attr('class', 'event-artist')
           .attr('font-size', 20)
+          .attr('font-family', 'Raleway'),
+
+      svg1.append('svg:text')
+          .text(function(d){
+            return events[i].artist_name + ": " + events[i].artist_name.description;
+          })
+          .attr('y', (thing - birthyear) * yearHeight + 40)
+          .attr('x', 525)
+          .attr('class', 'event-artist')
+          .attr('font-size', 20)
           .attr('font-family', 'Raleway');
     };
-
-    // $('rect').tipsy({ 
-    //     gravity: 'w', 
-    //     html: true, 
-    //     title: function() {
-    //       var d = this.__data__;
-    //       return 'd.event_name' + ': ' + 'd.artist_name'; 
-    //     }
-    //   });
     
   }
   // end plotTimeline function

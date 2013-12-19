@@ -25,8 +25,10 @@ class TimelinesController < ApplicationController
     params[:timeline][:events_attributes].each do |key, value|
       if value[:year].present?
         art = Artist.create(artist_name: value[:artists][:artist_name])
+        art.description = lastfm.artist.get_info("value[:artists]")['bio']['content']
         @timeline.events.build(event_name: value[:event_name], year: value[:year], artist_id: art.id)
       end
+
     end
 
     respond_to do |format|
