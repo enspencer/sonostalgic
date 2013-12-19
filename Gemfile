@@ -12,6 +12,9 @@ gem 'sass-rails', '~> 4.0.0'
 # Use pry to debug
 gem 'pry-rails'
 
+# Use last.fm to get artist info
+gem 'lastfm'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 

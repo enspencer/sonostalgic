@@ -39,7 +39,7 @@ var Nostalgic = {
         svg1.append('svg:line')
             .attr('x1', 100)
             .attr('y1', thisHeight)
-            .attr('x2', w - 100)
+            .attr('x2', w/2)
             .attr('y2', thisHeight)
             .style('stroke', 'gray')
             .style('stroke-width', 2),
@@ -76,20 +76,15 @@ var Nostalgic = {
           d3.select(this)
               .transition()
               .duration(100)
-              .attr('fill', 'black')
+              .attr('fill', 'black');
         }),
-
-      d3.select('rect')
-        .on("mouseover", function(){return tooltip.style("visibility", "visible");})
-        .on("mousemove", function(){return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");})
-        .on("mouseout", function(){return tooltip.style("visibility", "hidden");}),
 
       svg1.append('svg:text')
           .text(function(d){
             return events[i].event_name + ": " + events[i].artist_name;
           })
           .attr('y', (thing - birthyear) * yearHeight + 40)
-          .attr('x', w/2 + 10)
+          .attr('x', 100)
           .attr('class', 'event-artist')
           .attr('font-size', 20)
           .attr('font-family', 'Raleway');
