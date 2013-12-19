@@ -100,7 +100,7 @@ var Nostalgic = {
 
       svg1.append('svg:text')
           .text(function(d){
-            return events[i].artist_name + ": " + events[i].artist_name.description;
+            return artists[i].name + ": " + artists[i].description;
           })
           .attr('y', (thing - birthyear) * yearHeight + 40)
           .attr('x', 525)
