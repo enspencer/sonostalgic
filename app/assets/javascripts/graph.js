@@ -27,6 +27,13 @@ var Nostalgic = {
             .attr('y2', h)
             .style('stroke', 'gray');
 
+    var tooltip = d3.select("body")
+            .append("div")
+            .style("position", "absolute")
+            .style("z-index", "10")
+            .style("visibility", "hidden")
+            .text("a simple tooltip");
+
     for (var i = 0; i < timelineLength; i++){
         var thisHeight = i * yearHeight;
         svg1.append('svg:line')
@@ -58,7 +65,24 @@ var Nostalgic = {
           .attr('width', 20)
           .attr('height', 68)
           .attr('rx', 8)
-          .attr('ry', 8),
+          .attr('ry', 8)
+          .on('mouseenter', function(d,i){
+            d3.select(this)
+            .transition()
+            .duration(30)
+            .attr('fill', 'red')
+        })
+          .on('mouseleave', function(d,i){
+          d3.select(this)
+              .transition()
+              .duration(100)
+              .attr('fill', 'black')
+        }),
+
+      d3.select('rect')
+        .on("mouseover", function(){return tooltip.style("visibility", "visible");})
+        .on("mousemove", function(){return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");})
+        .on("mouseout", function(){return tooltip.style("visibility", "hidden");}),
 
       svg1.append('svg:text')
           .text(function(d){
@@ -70,6 +94,15 @@ var Nostalgic = {
           .attr('font-size', 20)
           .attr('font-family', 'Raleway');
     };
+
+    // $('rect').tipsy({ 
+    //     gravity: 'w', 
+    //     html: true, 
+    //     title: function() {
+    //       var d = this.__data__;
+    //       return 'd.event_name' + ': ' + 'd.artist_name'; 
+    //     }
+    //   });
     
   }
   // end plotTimeline function
