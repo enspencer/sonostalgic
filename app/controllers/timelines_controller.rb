@@ -21,7 +21,6 @@ class TimelinesController < ApplicationController
   end
 
   def create
-    binding.pry
     @lastfm = Lastfm.new(ENV['API_KEY'], ENV['SECRET_KEY'])
     @timeline = Timeline.new(title: timeline_params[:title], birthyear: timeline_params[:birthyear])
     params[:timeline][:events_attributes].each do |key, value|
