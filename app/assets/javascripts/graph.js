@@ -58,7 +58,17 @@ var Nostalgic = {
           .attr('width', 20)
           .attr('height', 68)
           .attr('rx', 8)
-          .attr('ry', 8)
+          .attr('ry', 8),
+
+      svg1.append('svg:text')
+          .text(function(d){
+            return events[i].artist_name + events[i].event_name;
+          })
+          .attr('y', (thing - birthyear) * yearHeight - 8)
+          .attr('x', w/2 + 10)
+          .attr('class', 'event-artist')
+          .attr('font-size', 20)
+          .attr('font-family', 'Raleway');
     };
     
   }
