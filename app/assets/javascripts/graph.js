@@ -92,21 +92,30 @@ var Nostalgic = {
           .text(function(d){
             return events[i].event_name + ": " + events[i].artist_name;
           })
+          .attr('class', 'event-artist')
           .attr('y', (thing - birthyear) * yearHeight + 40)
-          .attr('x', 100)
+          .attr('x', w/2 + 20)
           .attr('class', 'event-artist')
           .attr('font-size', 20)
           .attr('font-family', 'Raleway'),
 
-      svg1.append('svg:text')
-          .text(function(d){
-            return artists[i].name + ": " + artists[i].description;
-          })
-          .attr('y', (thing - birthyear) * yearHeight + 40)
-          .attr('x', 525)
-          .attr('class', 'event-artist')
-          .attr('font-size', 20)
-          .attr('font-family', 'Raleway');
+          $('.event-artist').tipsy({ 
+        gravity: 'w', 
+        html: true, 
+        title: function() {
+          return artist.description; 
+        }
+      });
+
+      // svg1.append('svg:text')
+      //     .text(function(d){
+      //       return artists[i].name + ": " + artists[i].description;
+      //     })
+      //     .attr('y', (thing - birthyear) * yearHeight + 40)
+      //     .attr('x', 525)
+      //     .attr('class', 'event-artist')
+      //     .attr('font-size', 20)
+      //     .attr('font-family', 'Raleway');
     };
     
   }
