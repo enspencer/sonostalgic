@@ -21,11 +21,13 @@ class TimelinesController < ApplicationController
   end
 
   def create
+    @lastfm = Lastfm.new(ENV['API_KEY'], ENV['SECRET_KEY'])
     @timeline = Timeline.new(title: timeline_params[:title], birthyear: timeline_params[:birthyear])
     params[:timeline][:events_attributes].each do |key, value|
       if value[:year].present?
         art = Artist.create(artist_name: value[:artists][:artist_name])
-        art.description = lastfm.artist.get_info("value[:artists]")['bio']['content']
+        art.description = @lastfm.artist.get_info(value[:artists][:artist_name])['bio']['content']
+        art.save!
         @timeline.events.build(event_name: value[:event_name], year: value[:year], artist_id: art.id)
       end
 
