@@ -32,3 +32,17 @@
   font-family: Raleway;
   text-transform: uppercase;
 }
+
+.home-page {
+  text-align: center;
+}
+
+.share-button {
+  float: right;
+  margin-right: 200px;
+  margin-top: -57px;
+}
+
+/*.timeline-birthyear {
+  padding-right: -100px;
+}*/
