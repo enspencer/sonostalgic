@@ -21,8 +21,13 @@ var Nostalgic = {
           .attr('id', 'timeline-graph')
           .style('border-top', '2px solid black');
 
-      
-      artists.push()
+      for (var i = 0; i < events.length; i++){
+        var artist ={};
+        artist.name = events[i].artist_name,
+        artist.genre = events[i].genre,
+        artist.description = events[i].description;
+      artists.push(artist);
+    };
 
     var line = svg1.append('svg:line')
             .attr('x1', w/2)
