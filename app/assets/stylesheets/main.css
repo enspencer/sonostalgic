@@ -1,5 +1,5 @@
 .all-timelines {
-  margin-left: 30%;
+  text-align: center;
 }
 
 .this-nav {
@@ -26,4 +26,9 @@
 
 .timeline-data {
   margin-bottom: 20px;
+}
+
+.nav-link {
+  font-family: Raleway;
+  text-transform: uppercase;
 }
