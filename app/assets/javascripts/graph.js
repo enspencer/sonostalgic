@@ -62,9 +62,9 @@ var Nostalgic = {
 
       svg1.append('svg:text')
           .text(function(d){
-            return events[i].artist_name + events[i].event_name;
+            return events[i].event_name + ": " + events[i].artist_name;
           })
-          .attr('y', (thing - birthyear) * yearHeight - 8)
+          .attr('y', (thing - birthyear) * yearHeight + 40)
           .attr('x', w/2 + 10)
           .attr('class', 'event-artist')
           .attr('font-size', 20)
