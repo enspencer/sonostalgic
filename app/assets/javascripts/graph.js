@@ -99,23 +99,16 @@ var Nostalgic = {
           .attr('font-size', 20)
           .attr('font-family', 'Raleway'),
 
-          $('.event-artist').tipsy({ 
+      $('.event-artist').tipsy({ 
         gravity: 'w', 
         html: true, 
+        fade: true,
+        offset: 2,
+        fallback: 'No description available',
         title: function() {
           return artist.description; 
         }
       });
-
-      // svg1.append('svg:text')
-      //     .text(function(d){
-      //       return artists[i].name + ": " + artists[i].description;
-      //     })
-      //     .attr('y', (thing - birthyear) * yearHeight + 40)
-      //     .attr('x', 525)
-      //     .attr('class', 'event-artist')
-      //     .attr('font-size', 20)
-      //     .attr('font-family', 'Raleway');
     };
     
   }
