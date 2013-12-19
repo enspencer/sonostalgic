@@ -68,7 +68,13 @@ var Nostalgic = {
             .attr('x', 10)
             .attr('class', 'timeline-year')
             .attr('font-size', 20)
-            .attr('font-family', 'Raleway');
+            .attr('font-family', 'Raleway')
+        //     .on('mouseenter', function(d,i){
+        //     d3.select('.rect' + i)
+        //     .transition()
+        //     .duration(30)
+        //     .attr('fill', 'red');
+        // });
     };
 
     for (var i = 0; i < events.length; i++){
@@ -79,6 +85,7 @@ var Nostalgic = {
             return (thisYear - birthyear) * yearHeight + 1;
           })
           .attr('width', 20)
+          .attr('class', 'rect' + i)
           .attr('height', 68)
           .attr('rx', 8)
           .attr('ry', 8)
