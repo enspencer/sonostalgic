@@ -1,7 +1,7 @@
-<%= button_to 'Create your timeline', new_timeline_path, method: :get, class: 'timeline-create-button' %>
+<div class='all-timelines'>
+<%= button_to 'Create your timeline', new_timeline_path, method: :get, class: 'timeline-create-button btn btn-primary' %>
 
 Timelines:
-<div>
 <% @timelines.each do |timeline| %>
   <a href="/timelines/<%= timeline.id %>"><%= timeline.title || timeline.id %></p>
 <% end %>

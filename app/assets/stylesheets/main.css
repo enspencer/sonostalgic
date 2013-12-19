@@ -1,0 +1,29 @@
+.all-timelines {
+  margin-left: 30%;
+}
+
+.this-nav {
+  background-color: black;
+}
+
+.half-spacer {
+  height: 25px;
+}
+
+.spacer {
+  height: 50px;
+}
+
+.timeline-form {
+  text-align: center;
+}
+
+.form-title {
+  float: left;
+  margin-left: 420px;
+  margin-right: -440px;
+}
+
+.timeline-data {
+  margin-bottom: 20px;
+}
