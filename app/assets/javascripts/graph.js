@@ -36,22 +36,29 @@ var Nostalgic = {
             .attr('y2', h)
             .style('stroke', 'gray');
 
-    var tooltip = d3.select("body")
-            .append("div")
-            .style("position", "absolute")
-            .style("z-index", "10")
-            .style("visibility", "hidden")
-            .text("a simple tooltip");
+    line.attr('stroke-dasharray', w + " " + w)
+        .attr('stroke-dashoffset', w)
+        .transition()
+          .duration(2000)
+          .ease('linear')
+          .attr('stroke-dashoffset', 0);
 
     for (var i = 0; i < timelineLength; i++){
         var thisHeight = i * yearHeight;
-        svg1.append('svg:line')
+        var thisLine = svg1.append('svg:line')
             .attr('x1', 100)
             .attr('y1', thisHeight)
             .attr('x2', w/2)
             .attr('y2', thisHeight)
             .style('stroke', 'gray')
-            .style('stroke-width', 2),
+            .style('stroke-width', 2);
+
+      thisLine.attr('stroke-dasharray', w + " " + w)
+        .attr('stroke-dashoffset', w)
+        .transition()
+          .duration(2000)
+          .ease('linear')
+          .attr('stroke-dashoffset', 0),
 
         svg1.append('text')
             .text(function(d){
